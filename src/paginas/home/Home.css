@@ -1,11 +1,18 @@
-.titulo{
-    color: cornflowerblue;
-    text-align: center;
+.box{
+    background-color: #b7b9bb !important;
 }
 
-.img {
-    width: 500px;
-    height: 500px;
-    display: block;
-    margin: 0 auto;
+.titulo{
+   color: rgb(104, 7, 7) !important;
+   font-weight: bold !important;
+}
+
+.botao{
+    border-color:rgb(104, 7, 7) !important;
+    background-color: #1673be;
+    color:rgb(104, 7, 7) !important;
+}
+
+.postagens{
+    background-color: white;
 }
