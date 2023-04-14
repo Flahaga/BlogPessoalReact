@@ -1,7 +1,12 @@
-
+.color{
+background: linear-gradient(90deg, rgba(147,64,201,1) 0%, rgba(92,14,237,1) 35%, rgba(192,0,255,1) 100%);
+ 
+}
+  
 .cursor{
 cursor: pointer;
-
+color: white;
+justify-content: space-between;
     }
     
 .decorator-text-none{

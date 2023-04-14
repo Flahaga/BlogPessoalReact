@@ -1,16 +1,16 @@
-.box{
-    background-color: #b7b9bb !important;
+.caixa{
+    background-color: #9340c9 !important;
 }
 
 .titulo{
-   color: rgb(104, 7, 7) !important;
+   color: rgb(7, 22, 104)!important;
    font-weight: bold !important;
 }
 
 .botao{
-    border-color:rgb(104, 7, 7) !important;
+    border-color:rgb(7, 22, 104) !important;
     background-color: #1673be;
-    color:rgb(104, 7, 7) !important;
+    color:rgb(7, 22, 104) !important;
 }
 
 .postagens{

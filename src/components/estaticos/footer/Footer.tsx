@@ -11,29 +11,29 @@ function Footer() {
 
         <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid alignItems="center" item xs={12}>
-                <Box style={{ backgroundColor: "#b7b9bb", height: "120px" }}>
+                <Box style={{ backgroundColor: "#9340c9" , height: "120px" }}>
                     <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                        <Typography variant="h5" align="center" gutterBottom style={{ color: "rgb(104, 7, 7)" }}>Siga-nos nas redes sociais </Typography >
+                        <Typography variant="h5" align="center" gutterBottom style={{ color: "rgb(7, 22, 104)" }}>Siga-nos nas redes sociais </Typography >
                     </Box>
                     <Box display="flex" alignItems="center" justifyContent="center">
                         <a href="https://www.facebook.com/generationbrasil" target="_blank" rel="noopener noreferrer">
-                            <FacebookIcon style={{ fontSize: 60, color: "rgb(104, 7, 7)" }} />
+                            <FacebookIcon style={{ fontSize: 60, color: "rgb(7, 22, 104)" }} />
                         </a>
                         <a href="https://www.instagram.com/generationbrasil/" target="_blank" rel="noopener noreferrer">
-                            <InstagramIcon style={{ fontSize: 60, color: "rgb(104, 7, 7)" }} />
+                            <InstagramIcon style={{ fontSize: 60, color: "rgb(7, 22, 104)" }} />
                         </a>
                         <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank" rel="noopener noreferrer">
-                            <LinkedInIcon style={{ fontSize: 60, color: "rgb(104, 7, 7)" }} />
+                            <LinkedInIcon style={{ fontSize: 60, color: "rgb(7, 22, 104)" }} />
                         </a>
                     </Box>
                 </Box>
-                <Box style={{ backgroundColor: "#b7b9bb", height: "60px" }}>
+                <Box style={{ backgroundColor: "#9340c9" , height: "60px" }}>
                     <Box paddingTop={1}>
-                        <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "rgb(104, 7, 7)" }} > © 2023 Copyright:</Typography>
+                        <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "rgb(7, 22, 104)" }} > © 2023 Copyright:</Typography>
                     </Box>
                     <Box>
                         <a target="_blank" href="https://brasil.generation.org" rel="noopener noreferrer">
-                            <Typography variant="subtitle2" gutterBottom style={{ color: "rgb(104, 7, 7)" }} align="center">brasil.generation.org</Typography >
+                            <Typography variant="subtitle2" gutterBottom style={{ color: "rgb(7, 22, 104)" }} align="center">brasil.generation.org</Typography >
                         </a>
                     </Box>
                 </Box>
