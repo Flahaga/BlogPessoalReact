@@ -1,0 +1,16 @@
+.imagem2{
+    background-image: url(https://neilpatel.com/wp-content/uploads/fly-images/35768/blog-1200x675-c.jpg);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.textos2{
+    font-weight: bold !important;
+ }
+
+ .btnCancelar{
+    margin-right: 20px !important;
+ }
