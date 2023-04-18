@@ -18,9 +18,9 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/cadastroUsuarioe=-" element={<CadastroUsuario />} />
-          </Routes>==e=-
-        </div>=-e=
+            <Route path="/cadastroUsuario" element={<CadastroUsuario />} />
+          </Routes>
+        </div>
         <Footer />
       </BrowserRouter>
 

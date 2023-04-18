@@ -3,7 +3,7 @@ import  {  Box  } from "@mui/material"
 import  {  Button ,  Grid ,  TextField ,  Typography  }  from '@material-ui/core'
 import  {  Link ,  useNavigate  }  from  'react-router-dom' ;
 import  useLocalStorage from  'react-use-localstorage' ;
-import { api } from '../../services/Service';
+import { login} from '../../services/Service';
 import UserLogin  from  '../../models/UserLogin' ;
 
 
@@ -39,8 +39,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const resposta = await api.post("/usuarios/logar", userLogin)
-            setToken(resposta.data.token)
+            await login(`/usuarios/logar`, userLogin, setToken)
 
             alert('Usuário logado com sucesso!');
         } catch (error) {
@@ -68,7 +67,7 @@ return (
                         <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta? </Typography>
                     </Box>
                     <Link to="/cadastroUsuario">
-                       //<Typography variant='subtitle1' gutterBottom align='center' className='textos1' fontWeight={"bold"}>Cadastre-se</Typography>
+                <Typography variant='subtitle1' gutterBottom align='center' className='textos1' >Cadastre-se</Typography>
                     </Link>
 
                 </Box>
