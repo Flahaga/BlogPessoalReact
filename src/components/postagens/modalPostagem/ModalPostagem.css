@@ -1,0 +1,11 @@
+.cursor{ 
+    cursor: pointer; 
+}
+
+.btnModal{
+    border-color: white !important;
+    background-color:  white !important;
+}  
+
+/* o cursor é quando o mouse vira uma "mãozinha"
+o btnModal é o botão da modal
