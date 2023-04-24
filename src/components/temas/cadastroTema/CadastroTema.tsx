@@ -65,7 +65,6 @@ function CadastroTema() {
                 }
     
             } else {
-    
                 try {
                     await post(`/temas`, tema, setTema, { // post cadastra
                         headers: {
