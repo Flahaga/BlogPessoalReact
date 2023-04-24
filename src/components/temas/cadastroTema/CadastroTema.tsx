@@ -16,9 +16,9 @@ function CadastroTema() {
     })
 
     useEffect(() => { // useEffect responsável pelo ciclo de vida
-        if (token == "") {
+        if (token === "") {
             alert("Você precisa estar logado")
-            history("/login")
+            history("/login")            
     
         }
     }, [token])
@@ -30,7 +30,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
@@ -48,29 +48,44 @@ function CadastroTema() {
         
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault()
-            console.log("tema " + JSON.stringify(tema))
-    
             if (id !== undefined) {
-                console.log(tema)
-                put(`/tema`, tema, setTema, { // put atualiza
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                alert('Tema atualizado com sucesso');
+
+                try {
+                    await put(`/temas`, tema, setTema, { //put atualiza
+                        headers: {
+                            'Authorization': token
+                        }
+                    })
+    
+                    alert('Tema atualizado com sucesso');
+    
+                } catch (error) {
+                    console.log(`Error: ${error}`)
+                    alert("Erro, por favor verifique a quantidade minima de caracteres")
+                }
+    
             } else {
-                post(`/tema`, tema, setTema, { // post cadastra
-                    headers: {
-                        'Authorization': token
-                    }
-                })
-                alert('Tema cadastrado com sucesso');
+    
+                try {
+                    await post(`/temas`, tema, setTema, { // post cadastra
+                        headers: {
+                            'Authorization': token
+                        }
+                    })
+    
+                    alert('Tema cadastrado com sucesso');
+    
+                } catch (error) {
+                    console.log(`Error: ${error}`)
+                    alert("Erro, por favor verifique a quantidade minima de caracteres")
+                }
             }
-            back() // back vai nos redirecionar para a rota temas 
+    
+            back()
     
         }
     
-        function back() {
+        function back() { //  back redireciona para a rota desejada
             history('/temas')
         }
   
@@ -89,3 +104,9 @@ function CadastroTema() {
     }
 
 export default CadastroTema;
+
+/*  Operadores utilizados 
+        = : Atribuição (valor = 9)         - Atribui um valor a uma variavel/constante
+        == : Op. Aritmetico (valor == 9.0) - Verifica se os valores são iguais
+        === : Op. Idêntico (valor === 9.0) - Verifica se os valores e tipos são iguais
+    */

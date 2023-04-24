@@ -13,7 +13,7 @@ function ListaTema() {
   let history = useNavigate(); // useNavigate faz a verificação e direciona para a tela principal
 
   useEffect(() => {
-    if (token == "") {
+    if (token === "") {
       alert("Voce precisa estar logado")
       history("/login")
     }

@@ -16,7 +16,7 @@ function DeletarTema() {
   const [tema, setTema] = useState<Tema>()
 
   useEffect(() => {
-      if (token == "") {
+      if (token === "") {
           alert("Você precisa estar logado")
           history("/login")
   
@@ -30,7 +30,7 @@ function DeletarTema() {
   }, [id])
 
   async function findById(id: string) {
-      buscaId(`/tema/${id}`, setTema, {
+      buscaId(`/temas/${id}`, setTema, {
           headers: {
             'Authorization': token
           }
@@ -39,7 +39,7 @@ function DeletarTema() {
 
       function sim() {
         history('/temas')
-          deleteId(`/tema/${id}`, {
+          deleteId(`/temas/${id}`, {
             headers: {
               'Authorization': token
             }

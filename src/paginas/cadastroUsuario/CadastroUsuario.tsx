@@ -55,18 +55,28 @@ function CadastroUsuario() {
    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
        
-        if  ( confirmarSenha  ===  user.senha  &&  user.senha. length  >=  8 )  {
-            try  {
-                await  cadastroUsuario ( `/usuarios/cadastrar` ,  user ,  setUserResult )
-                alert ( 'Usuário cadastrado com sucesso' )
-            }  catch(error) {
-                alert ( 'Dados inconsistentes. Verifique as informações de cadastro.' )
-    
-                setUser ( { ... user ,  senha : ""  } )  
-                setConfirmarSenha ( "" )            
-            }
-        }   
-        }  
+       // Estrutura Condicional que verifica se as senhas batem e se a Senha tem mais de 10 caracteres
+       if (confirmarSenha === user.senha && user.senha.length >= 10) {
+
+        //Tenta executar o cadastro
+        try {
+            await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+            alert('Usuario cadastrado com sucesso')
+
+            //Se houver erro, pegue o Erro e retorna uma msg
+        } catch (error) {
+            console.log(`Error: ${error}`)
+            alert("Erro ao cadastrar o Usuário")
+        }
+
+    } else {
+        alert('Dados inconsistentes. Verifique as informações de cadastro.')
+
+        setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
+        setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha
+    }
+}
+
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
@@ -79,6 +89,7 @@ function CadastroUsuario() {
                         <TextField value={user.usuário} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) =>confirmarSenhaHandle(e)}id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
+                        <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='foto' label='Foto' variant='outlined' name='foto' margin='normal' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 < Button variant='contained' color='secondary' className='btnCancelar'>
@@ -102,3 +113,5 @@ function CadastroUsuario() {
 
 
 export default CadastroUsuario;
+
+
