@@ -2,14 +2,17 @@ import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import Tema from '../../../models/Tema';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import { buscaId,put,post } from '../../../services/Service';
 import './CadastroTema.css';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function CadastroTema() {
     let history= useNavigate()
     const { id } = useParams<{id: string}>(); // useParams responsável pelos paramêtros enviados pela url
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>( //useselector vai pegar o token na store, e atribuir a constante token
+    (state) => state.tokens
+  );
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''

@@ -4,14 +4,18 @@ import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/
 import {Box} from '@mui/material';
 import './ListaPostagem.css';
 import Postagem from '../../../models/Postagem';
-import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 function ListaPostagem() {
   const [posts, setPosts]= useState<Postagem[]>([]) //todo set guarda as informações
-  const [token, setToken] = useLocalStorage("token")
-  let history= useNavigate(); // useNavigate faz a verificação e direciona para a tela principal
+  let history= useNavigate();// useNavigate faz a verificação e direciona para a tela principal
+  const token = useSelector<TokenState, TokenState["tokens"]>( //useselector vai pegar o token na store, e atribuir a constante token
+  (state) => state.tokens
+);
+
   useEffect(()=>{
     if(token == ""){
    alert("Voce precisa estar logado")

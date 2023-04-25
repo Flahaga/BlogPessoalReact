@@ -17,4 +17,6 @@
    color:rgb(7, 22, 104);
 }
 
-
+.text-decorator-none{
+    text-decoration: none;
+}

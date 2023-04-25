@@ -4,12 +4,15 @@ import { Card, CardActions, CardContent, Button, Typography } from '@material-ui
 import { Box } from '@mui/material';
 import './ListaTema.css';
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaTema() {
   const [temas, setTemas] = useState<Tema[]>([]) //todo set guarda as informações
-  const [token, setToken] = useLocalStorage("token")
+  const token = useSelector<TokenState, TokenState["tokens"]>( //useselector vai pegar o token na store, e atribuir a constante token
+  (state) => state.tokens
+);
   let history = useNavigate(); // useNavigate faz a verificação e direciona para a tela principal
 
   useEffect(() => {
