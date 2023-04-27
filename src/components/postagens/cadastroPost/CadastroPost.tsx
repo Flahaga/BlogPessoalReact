@@ -7,6 +7,7 @@ import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroPost() {
     let history = useNavigate();
@@ -18,7 +19,16 @@ function CadastroPost() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error("Usuário deve estar logado", { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            });
             history("/login")
 
         }
@@ -81,19 +91,39 @@ function CadastroPost() {
         e. preventDefault()
 
         if (id !== undefined) {
-            put('/postagens', postagem, setPostagem, {
+            put(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem atualizada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } else {
-            post('/postagens', postagem, setPostagem, {
+            
+            console.log(postagem)
+            post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso');
+            toast.success('Postagem cadastrada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         }
         back()
 

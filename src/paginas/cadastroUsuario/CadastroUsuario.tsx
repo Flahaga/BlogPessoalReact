@@ -8,6 +8,7 @@ import  {  cadastroUsuario  }  from  '../../services/Service' ;
 import  User  from  '../../models/User' ;
 
 import  "./CadastroUsuario.css" ;
+import { toast } from 'react-toastify';
 
 
 function CadastroUsuario() {
@@ -61,16 +62,42 @@ function CadastroUsuario() {
         //Tenta executar o cadastro
         try {
             await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
-
+            toast.success('Usuário cadastrado com sucesso', { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            }); 
             //Se houver erro, pegue o Erro e retorna uma msg
         } catch (error) {
             console.log(`Error: ${error}`)
-            alert("Erro ao cadastrar o Usuário")
+            toast.error('Erro ao cadastrar o usuário ', { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            }); 
         }
 
     } else {
-        alert('Dados inconsistentes. Verifique as informações de cadastro.')
+        toast.error('Erro ao cadastrar o usuário ', { // toast responsável pelo "card" de informação 
+            position: 'top-right', //posição,no canto da tela
+            autoClose: 2000, // tempo na tela 2 segundos
+            hideProgressBar: false, // para aparecer a barra de progresso
+            closeOnClick: true,  // fechar a notificação no x
+            pauseOnHover: false, // ao colocar o mouse no card ele pausa
+            draggable: false, // move o card de lugar
+            theme: "colored", // tema colorido
+            progress: undefined, 
+        }); 
 
         setUser({ ...user, senha: "" }) // Reinicia o campo de Senha
         setConfirmarSenha("")           // Reinicia o campo de Confirmar Senha
@@ -86,7 +113,7 @@ function CadastroUsuario() {
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
-                        <TextField value={user.usuário} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuario' label='usuario' variant='outlined' name='usuario' margin='normal' fullWidth />
+                        <TextField value={user.usuário} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='usuário' label='usuário' variant='outlined' name='usuário' margin='normal' fullWidth />
                         <TextField value={user.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
                         <TextField value={confirmarSenha} onChange={(e: ChangeEvent<HTMLInputElement>) =>confirmarSenhaHandle(e)}id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
                         <TextField value={user.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}id='foto' label='Foto' variant='outlined' name='foto' margin='normal' fullWidth />

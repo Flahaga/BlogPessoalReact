@@ -7,6 +7,7 @@ import UserLogin  from  '../../models/UserLogin' ;
 import  "./Login.css" ;
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/Actions';
+import { toast } from 'react-toastify';
 
 function Login() {
     let history = useNavigate();
@@ -42,12 +43,29 @@ function Login() {
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
 
-            alert('Usuário logado com sucesso!');
+            toast.success('Usuário logado com sucesso', { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            }); 
         } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
-        }
+            toast.error('Erro ao logar o usuário ', { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            }); 
     }
-
+    }
 
 return (
     <Grid container direction='row' justifyContent='center' alignItems='center'>
@@ -79,6 +97,6 @@ return (
         </Grid>
     </Grid>
 );
-}
+  }
 
 export default Login;

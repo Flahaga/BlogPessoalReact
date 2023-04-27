@@ -7,6 +7,7 @@ import { buscaId, deleteId } from '../../../services/Service';
 import Tema from '../../../models/Tema';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function DeletarTema() {
@@ -20,7 +21,16 @@ function DeletarTema() {
 
   useEffect(() => {
       if (token === "") {
-          alert("Você precisa estar logado")
+        toast.error('O usuário precisa estar logado', { // toast responsável pelo "card" de informação 
+          position: 'top-right', //posição,no canto da tela
+          autoClose: 2000, // tempo na tela 2 segundos
+          hideProgressBar: false, // para aparecer a barra de progresso
+          closeOnClick: true,  // fechar a notificação no x
+          pauseOnHover: false, // ao colocar o mouse no card ele pausa
+          draggable: false, // move o card de lugar
+          theme: "colored", // tema colorido
+          progress: undefined, 
+      }); 
           history("/login")
   
       }
@@ -47,7 +57,16 @@ function DeletarTema() {
               'Authorization': token
             }
           });
-          alert('Tema deletado com sucesso');
+          toast.success('Tema deletado com sucesso', { // toast responsável pelo "card" de informação 
+            position: 'top-right', //posição,no canto da tela
+            autoClose: 2000, // tempo na tela 2 segundos
+            hideProgressBar: false, // para aparecer a barra de progresso
+            closeOnClick: true,  // fechar a notificação no x
+            pauseOnHover: false, // ao colocar o mouse no card ele pausa
+            draggable: false, // move o card de lugar
+            theme: "colored", // tema colorido
+            progress: undefined, 
+        }); 
         }
       
         function nao() {

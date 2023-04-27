@@ -6,6 +6,7 @@ import { buscaId,put,post } from '../../../services/Service';
 import './CadastroTema.css';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function CadastroTema() {
     let history= useNavigate()
@@ -20,7 +21,16 @@ function CadastroTema() {
 
     useEffect(() => { // useEffect responsável pelo ciclo de vida
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.error('O usuário precisa estar logado', { // toast responsável pelo "card" de informação 
+                position: 'top-right', //posição,no canto da tela
+                autoClose: 2000, // tempo na tela 2 segundos
+                hideProgressBar: false, // para aparecer a barra de progresso
+                closeOnClick: true,  // fechar a notificação no x
+                pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                draggable: false, // move o card de lugar
+                theme: "colored", // tema colorido
+                progress: undefined, 
+            }); 
             history("/login")            
     
         }
@@ -60,11 +70,29 @@ function CadastroTema() {
                         }
                     })
     
-                    alert('Tema atualizado com sucesso');
+                    toast.success('Tema atualizado com sucesso', { // toast responsável pelo "card" de informação 
+                        position: 'top-right', //posição,no canto da tela
+                        autoClose: 2000, // tempo na tela 2 segundos
+                        hideProgressBar: false, // para aparecer a barra de progresso
+                        closeOnClick: true,  // fechar a notificação no x
+                        pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                        draggable: false, // move o card de lugar
+                        theme: "colored", // tema colorido
+                        progress: undefined, 
+                    }); 
     
                 } catch (error) {
                     console.log(`Error: ${error}`)
-                    alert("Erro, por favor verifique a quantidade minima de caracteres")
+                    toast.error('Erro,verifique a quantidade minima de caracteres', { // toast responsável pelo "card" de informação 
+                        position: 'top-right', //posição,no canto da tela
+                        autoClose: 2000, // tempo na tela 2 segundos
+                        hideProgressBar: false, // para aparecer a barra de progresso
+                        closeOnClick: true,  // fechar a notificação no x
+                        pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                        draggable: false, // move o card de lugar
+                        theme: "colored", // tema colorido
+                        progress: undefined, 
+                    }); 
                 }
     
             } else {
@@ -75,11 +103,31 @@ function CadastroTema() {
                         }
                     })
     
-                    alert('Tema cadastrado com sucesso');
+                    toast.success('Tema cadastrado com sucesso', { // toast responsável pelo "card" de informação 
+                        position: 'top-right', //posição,no canto da tela
+                        autoClose: 2000, // tempo na tela 2 segundos
+                        hideProgressBar: false, // para aparecer a barra de progresso
+                        closeOnClick: true,  // fechar a notificação no x
+                        pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                        draggable: false, // move o card de lugar
+                        theme: "colored", // tema colorido
+                        progress: undefined, 
+                    }); 
+    
     
                 } catch (error) {
                     console.log(`Error: ${error}`)
-                    alert("Erro, por favor verifique a quantidade minima de caracteres")
+                    toast.error('Erro,verifique a quantidade minima de caracteres', { // toast responsável pelo "card" de informação 
+                        position: 'top-right', //posição,no canto da tela
+                        autoClose: 2000, // tempo na tela 2 segundos
+                        hideProgressBar: false, // para aparecer a barra de progresso
+                        closeOnClick: true,  // fechar a notificação no x
+                        pauseOnHover: false, // ao colocar o mouse no card ele pausa
+                        draggable: false, // move o card de lugar
+                        theme: "colored", // tema colorido
+                        progress: undefined, 
+                    }); 
+    
                 }
             }
     
