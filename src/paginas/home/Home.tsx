@@ -49,8 +49,7 @@ function Home() {
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    {/* <img src="https://cdn5.colorir.com/desenhos/color/201533/um-computador-portatil-a-casa-o-quarto-pintado-por-biankamelo-1126111.jpg" alt='' width="500px" height="500px"/> */}
-                    <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+                    <img src="https://cdn5.colorir.com/desenhos/color/201533/um-computador-portatil-a-casa-o-quarto-pintado-por-biankamelo-1126111.jpg" alt='' width="500px" height="500px"/>
                 </Grid>
                 <Grid xs={12} className='postagens'>
                     <TabPostagem />
