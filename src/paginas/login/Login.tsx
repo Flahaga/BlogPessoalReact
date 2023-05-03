@@ -6,8 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import { login } from '../../services/Service';
-import { addToken } from "../../store/tokens/Actions";
-
+import { addToken } from "../../store/tokens/actions";
 import UserLogin from '../../models/UserLogin';
 
 import "./Login.css";
