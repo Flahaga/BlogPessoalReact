@@ -14,8 +14,8 @@ function CadastroPost() {
     const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Tema[]>([]) //[] representam um array, uma lista
     const token = useSelector<TokenState, TokenState["tokens"]>( //useselector vai pegar o token na store, e atribuir a constante token
-    (state) => state.tokens
-  );
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if (token == "") {
@@ -27,7 +27,7 @@ function CadastroPost() {
                 pauseOnHover: false, // ao colocar o mouse no card ele pausa
                 draggable: false, // move o card de lugar
                 theme: "colored", // tema colorido
-                progress: undefined, 
+                progress: undefined,
             });
             history("/login")
 
@@ -43,13 +43,13 @@ function CadastroPost() {
         id: 0,
         titulo: '',
         texto: '',
-        data:'',
+        data: '',
         tema: null
     })
 
-    useEffect(() => { 
+    useEffect(() => {
         setPostagem({
- ... postagem,
+            ...postagem,
             tema: tema
         })
     }, [tema])
@@ -61,7 +61,7 @@ function CadastroPost() {
         }
     }, [id])
 
-     async function  getTemas() {
+    async function getTemas() {
         await busca("/temas", setTemas, {
             headers: {
                 'Authorization': token
@@ -80,15 +80,15 @@ function CadastroPost() {
     function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
 
         setPostagem({
- ... postagem,
-            [e. target. name]: e. target. value,
+            ...postagem,
+            [e.target.name]: e.target.value,
             tema: tema
         })
 
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) { // onSubmit responsável por enviar informações
-        e. preventDefault()
+        e.preventDefault()
 
         if (id !== undefined) {
             put(`/postagens`, postagem, setPostagem, {
@@ -107,7 +107,7 @@ function CadastroPost() {
                 progress: undefined,
             });
         } else {
-            
+
             console.log(postagem)
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
@@ -137,24 +137,24 @@ function CadastroPost() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography >
-                <TextField value={postagem. titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem. texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)}id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
+                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel >
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/temas/${e.target.value}` , setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
                         })}>
                         {
                             temas.map(tema => ( // map mapeia os temas
-                                <MenuItem value={tema. id}>{tema. descricao}</MenuItem>
+                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
                             ))
-                        } 
+                        }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
                     <Button type="submit" variant="contained" color="primary">
