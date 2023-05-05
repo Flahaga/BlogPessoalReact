@@ -3,15 +3,8 @@
  }
  
  .imagem{
-     background-image: url(https://imgur.com/C4HzHw1);
-<<<<<<< HEAD
-
-     background-image: url(https://i.imgur.com/d5bMdDJ.jpg);
-
-=======
->>>>>>> c46d53075d2f195459d37c3be38f39d6515d3425
+     background-image: url(https://i.imgur.com/C4HzHw1.png);
      background-repeat: no-repeat;
-     background-image: url(https://imgur.com/C4HzHw1);
      width: 100vh;
      min-height: 100vh;
      background-size: cover;
